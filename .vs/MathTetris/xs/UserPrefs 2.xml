@@ -1,0 +1,53 @@
+﻿<Properties StartupConfiguration="{3836990A-9B89-D01D-7E11-8CF53EEAEA8B}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controllers/ColorTetris/ColorTetrisGameController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Controllers/Abstracts/GridController.cs" Line="101" Column="39" />
+      <File FileName="Assets/Scripts/Controllers/ColorTetris/ColorTetrisGridController.cs" Line="43" Column="34" />
+      <File FileName="Assets/Scripts/Controllers/ColorTetris/ColorTetrisSpawnerController.cs" Line="104" Column="53" />
+      <File FileName="Assets/Scripts/Domain/ColorGridDomain.cs" Line="49" Column="1" />
+      <File FileName="Assets/Scripts/Entities/Block.cs" Line="20" Column="1" />
+      <File FileName="Assets/Scripts/Controllers/ColorTetris/ColorTetrisGameController.cs" Line="111" Column="60" />
+      <File FileName="Assets/Scripts/Entities/Piece.cs" />
+      <File FileName="Assets/Scripts/Controllers/Abstracts/SpawnerController.cs" Line="33" Column="17" />
+      <File FileName="Assets/Scripts/Controllers/Abstracts/GameController.cs" Line="41" Column="26" />
+      <File FileName="Assets/Scripts/Controllers/GamePanelController.cs" />
+      <File FileName="Assets/Scripts/Controllers/MenuController.cs" />
+      <File FileName="Assets/Scripts/Controllers/ScoreController.cs" />
+      <File FileName="Assets/Scripts/Extensions/ColorExtension.cs" />
+      <File FileName="Assets/Scripts/Extensions/FloatExtension.cs" />
+      <File FileName="Assets/Scripts/Extensions/BlockExtension.cs" Line="19" Column="43" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MathTetris" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Controllers" expanded="True">
+                  <Node name="Abstracts" expanded="True" />
+                  <Node name="ColorTetris" expanded="True">
+                    <Node name="ColorTetrisGameController.cs" selected="True" />
+                  </Node>
+                </Node>
+                <Node name="Domain" expanded="True" />
+                <Node name="Entities" expanded="True" />
+                <Node name="Extensions" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bc0b589a-85dc-404a-a262-6f0e412cba97" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/mathiasvoelcker/Desktop/Developer/Unity/MathTetris/Assets/Scripts/Controllers/ColorTetrisGridController.cs" relfile="Assets/Scripts/Controllers/ColorTetrisGridController.cs" line="9" column="1" />
+      <Breakpoint file="/Users/mathiasvoelcker/Desktop/Developer/Unity/MathTetris/Assets/Scripts/Controllers/DuelTetris/DuelTetrisGameController.cs" relfile="Assets/Scripts/Controllers/DuelTetris/DuelTetrisGameController.cs" line="95" column="1" />
+      <Breakpoint file="/Users/mathiasvoelcker/Desktop/Developer/Unity/MathTetris/Assets/Scripts/Controllers/Abstracts/GridController.cs" relfile="Assets/Scripts/Controllers/Abstracts/GridController.cs" line="78" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
