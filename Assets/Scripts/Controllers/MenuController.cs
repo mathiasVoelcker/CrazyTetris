@@ -18,12 +18,15 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     private DuelTetrisGameController _duelTetrisGameController;
 
+    [SerializeField]
+    private GamePanelController _gamePanelController;
+
     public void StartMathTetris()
     {
         MenuPanel.SetActive(false);
         GridPanel.SetActive(true);
         _mathTetrisGameController.StartGame();
-
+        _gamePanelController.SetGameController(_mathTetrisGameController);
     }
 
     public void StartColorTetris()
@@ -31,6 +34,7 @@ public class MenuController : MonoBehaviour
         MenuPanel.SetActive(false);
         GridPanel.SetActive(true);
         _colorTetrisGameController.StartGame();
+        _gamePanelController.SetGameController(_colorTetrisGameController);
     }
 
     public void StartDuelTetris()
@@ -38,6 +42,7 @@ public class MenuController : MonoBehaviour
         MenuPanel.SetActive(false);
         GridPanel.SetActive(true);
         _duelTetrisGameController.StartGame();
+        _gamePanelController.SetGameController(_duelTetrisGameController);
     }
 
     public void EndGame()

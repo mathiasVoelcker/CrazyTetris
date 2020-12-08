@@ -18,6 +18,8 @@ public class GamePanelController : MonoBehaviour
     [SerializeField]
     private MenuController MenuController;
 
+    private GameController _gameController;
+
     public void PauseGame()
     {
         PausePanel.SetActive(true);
@@ -43,6 +45,18 @@ public class GamePanelController : MonoBehaviour
         GameController.IsPaused = true;
         GameOverPanel.SetActive(true);
         //MenuController.EndGame();
+    }
+
+    public void SetGameController(GameController gameController)
+    {
+        _gameController = gameController;
+    }
+
+    public void Restart()
+    {
+        MenuController.EndGame();
+        GameOverPanel.SetActive(false);
+        _gameController.StartGame();
     }
 
     public void ClearPanel()

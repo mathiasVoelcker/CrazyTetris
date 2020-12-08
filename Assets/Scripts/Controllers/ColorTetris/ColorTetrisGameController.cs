@@ -61,7 +61,7 @@ public class ColorTetrisGameController : GameController
         _colorTetrisSpawnerController = (ColorTetrisSpawnerController)SpawnerController;
     }
 
-    public override void AddScore(List<Block> blocksToRemove, int seqMultiplier)
+    public override void AddScore(List<Block> blocksToRemove, List<Block> blocksBombed, int seqMultiplier = 1)
     {
         if (_currentLevel > 1)
         {
@@ -71,7 +71,7 @@ public class ColorTetrisGameController : GameController
                 if (piece.Count() > pieceSize)
                 {
                     var blocks = piece.ToList();
-                    while(blocks.Count >= pieceSize)
+                    while (blocks.Count >= pieceSize)
                     {
                         AddNewPiece(blocks.Take(pieceSize).ToList());
                         blocks.RemoveRange(0, pieceSize);
@@ -83,13 +83,16 @@ public class ColorTetrisGameController : GameController
                 }
             }
         }
-        
+
         var pieceCount = blocksToRemove.Count / pieceSize;
-        
+
         var specialPieces = blocksToRemove.Where(x => Math.Round(x.BlockObject.GetColor().r, 2) == 0.32).ToList();
         var specialPieceCount = specialPieces.Count / pieceSize;
+
         var scoreToAdd = (pieceCount + specialPieceCount) * (Math.Pow(2, pieceSize) * seqMultiplier);
+        scoreToAdd += blocksBombed.Count * pieceSize;
         var newScore = ScoreController.AddScore((int)scoreToAdd);
+
         if (newScore >= _scoreToNextLevel)
         {
             _currentLevel = LevelController.AddLevel();
@@ -117,6 +120,11 @@ public class ColorTetrisGameController : GameController
                 PieceSizeText.gameObject.GetComponent<Text>().text = "" + pieceSize;
             }
         }
+    }
+
+    public override void AddScore(List<Block> blocksToRemove, int seqMultiplier)
+    {
+        AddScore(blocksToRemove, null, seqMultiplier);
     }
 
     public void AddNewPiece(List<Block> blocksToRemove)
@@ -238,4 +246,5 @@ public class ColorTetrisGameController : GameController
         BlockSizeAnimator.Play("Size Block Fade", -1, 0f);
         yield return new WaitForSeconds(0.1f);
     }
+
 }

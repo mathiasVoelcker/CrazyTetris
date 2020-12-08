@@ -8,6 +8,7 @@ public class GridController : MonoBehaviour
 {
     public static readonly int LINES = 20;
     public static readonly int COLUMNS = 10;
+    public static readonly int BOMB_RANGE = 1;
 
     public int blocksSequence { get; set; } = 1;
 
@@ -61,16 +62,18 @@ public class GridController : MonoBehaviour
         blocksSequence = 1;
     }
 
-    protected IEnumerator RemoveBlocks(List<Block> blocksToRemove, bool dropEveryBlock = true)
+    protected IEnumerator RemoveBlocks(List<Block> blocksToScore, bool dropEveryBlock = true)
     {
-        var blocksToScore = new List<Block>();
-        blocksToScore.AddRange(blocksToRemove);
-        AddBombEffect(blocksToRemove);
+        var blocksBombed = GetBlocksBombed(blocksToScore);
+
+        var blocksToRemove = blocksToScore.Union(blocksBombed).ToList();
+
         StartCoroutine(HighlightBlocks(blocksToRemove));
         yield return new WaitForSeconds(1f);
         UnhighlightBlocks(blocksToRemove);
         IsHighlightingBlocks = false;
-        GameController.AddScore(blocksToScore, blocksSequence);
+
+        GameController.AddScore(blocksToScore, blocksBombed, blocksSequence);
         blocksToRemove = blocksToRemove.OrderByDescending(x => x.Line).ToList();
         foreach (var block in blocksToRemove)
         {
@@ -94,14 +97,14 @@ public class GridController : MonoBehaviour
         CheckBlocks(isSequence: true);
     }
 
-    private void AddBombEffect(List<Block> blocksToRemove)
+    private List<Block> GetBlocksBombed(List<Block> blocksToRemove)
     {
         var newBlocksToRemote = new List<Block>();
         foreach (var block in blocksToRemove.Where(x => x.IsBombBlock()))
         {
-            for (int i = -2; i <= 2; i++)
+            for (int i = -BOMB_RANGE; i <= BOMB_RANGE; i++)
             {
-                for (int j = -2; j <= 2; j++)
+                for (int j = -BOMB_RANGE; j <= BOMB_RANGE; j++)
                 {
                     if (i == 0 && j == 0) continue;
                     var line = block.Line + i;
@@ -110,12 +113,13 @@ public class GridController : MonoBehaviour
                     if (column < 0 || column > COLUMNS) continue;
                     if (Grid[line, column] == null) continue;
                     if (blocksToRemove.Any(x => x.Line == line && x.Column == column)) continue;
+                    if (newBlocksToRemote.Any(x => x.Line == line && x.Column == column)) continue;
                     newBlocksToRemote.Add(new Block(Grid[line, column], line, column));
                 }
             }
         }
 
-        blocksToRemove.AddRange(newBlocksToRemote);
+        return newBlocksToRemote;
     }
 
     private void DropBlocksAbove(int line, int c, int fallLines = 1)
@@ -181,7 +185,11 @@ public class GridController : MonoBehaviour
         for (var i = 0; i < blockList.Count; i++)
         {
             var block = blockList[i];
-            if (block.BlockObject.localScale.x == 0f) continue;
+            if (block.BlockObject.localScale.x == 0f)
+            {
+                blockList.RemoveAt(i);
+                continue;
+            }
             block.BlockObject.localScale = new Vector3(1.2f, 1.2f, 1.2f);
             yield return new WaitForSeconds(timeInterval);
             popSound.PlayOneShot(popSound.clip);

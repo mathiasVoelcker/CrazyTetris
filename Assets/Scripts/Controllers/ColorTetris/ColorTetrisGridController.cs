@@ -20,14 +20,21 @@ public class ColorTetrisGridController : GridController
         var colorTetrisGameController = (ColorTetrisGameController) GameController;
         var blocksToRemove = gridDomain.CheckColors(colorTetrisGameController.pieceSize);
 
-        if (isSequence)
-        {
-            if (blocksSequence < 3) blocksSequence++;
-        }
-        else blocksSequence = 1;
 
         if (blocksToRemove.Any())
         {
+            if (isSequence)
+            {
+                if (blocksSequence == 3)
+                {
+                    var t = 0;
+                }
+                if (blocksSequence < 3) blocksSequence++;
+
+            }
+            else
+                blocksSequence = 1;
+
             if (blocksSequence > 1)
             {
                 MultiplierText.SetActive(true);

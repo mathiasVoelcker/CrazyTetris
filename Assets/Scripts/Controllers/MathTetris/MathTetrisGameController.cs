@@ -41,4 +41,8 @@ public class MathTetrisGameController : GameController
 
     }
 
+    public override void AddScore(List<Block> blocksToRemove, List<Block> blocksBombed, int seqMultiplier = 1)
+    {
+        throw new NotImplementedException();
+    }
 }

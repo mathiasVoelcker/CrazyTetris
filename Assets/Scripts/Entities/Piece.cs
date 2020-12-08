@@ -77,7 +77,7 @@ public class Piece : MonoBehaviour
 
     void Update()
     {
-        if (_isMoving)
+        if (_isMoving && !GameController.IsPaused)
         {
             if (Input.GetKeyDown(_leftArrow))
             {

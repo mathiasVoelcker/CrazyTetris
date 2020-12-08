@@ -129,4 +129,9 @@ public class DuelTetrisGameController : GameController
     {
         return ScorePanelPlayer2.gameObject.GetComponentsInChildren<Text>().First(x => x.name == "Score").text;
     }
+
+    public override void AddScore(List<Block> blocksToRemove, List<Block> blocksBombed, int seqMultiplier = 1)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -40,6 +40,8 @@ public abstract class GameController : MonoBehaviour
 
     public abstract void AddScore(List<Block> blocksToRemove, int seqMultiplier = 1);
 
+    public abstract void AddScore(List<Block> blocksToRemove, List<Block> blocksBombed, int seqMultiplier = 1);
+
     public virtual void GameOver()
     {
         GamePanelController.GameOver();
