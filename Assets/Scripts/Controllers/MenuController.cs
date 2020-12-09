@@ -10,6 +10,9 @@ public class MenuController : MonoBehaviour
     private GameObject MenuPanel;
 
     [SerializeField]
+    private GameObject SettingsPanel;
+
+    [SerializeField]
     private MathTetrisGameController _mathTetrisGameController;
 
     [SerializeField]
@@ -23,6 +26,7 @@ public class MenuController : MonoBehaviour
 
     [SerializeField]
     private GameObject BackButton;
+
 
     public void StartMathTetris()
     {
@@ -49,6 +53,12 @@ public class MenuController : MonoBehaviour
         BackButton.SetActive(true);
         _duelTetrisGameController.StartGame();
         _gamePanelController.SetGameController(_duelTetrisGameController);
+    }
+
+    public void OpenSettings()
+    {
+        MenuPanel.SetActive(false);
+        SettingsPanel.SetActive(true);
     }
 
     public void EndGame()

@@ -192,7 +192,8 @@ public class GridController : MonoBehaviour
             }
             block.BlockObject.localScale = new Vector3(1.2f, 1.2f, 1.2f);
             yield return new WaitForSeconds(timeInterval);
-            popSound.PlayOneShot(popSound.clip);
+            if (GameController.IsSoundActive)
+                popSound.PlayOneShot(popSound.clip);
             block.BlockObject.localScale = new Vector3(0f, 0f, 0f);
         }
     }

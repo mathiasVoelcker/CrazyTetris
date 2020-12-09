@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Controllers\MathTetris\MathTetrisSpawner.cs" />
     <Compile Include="Assets\Scripts\Controllers\MenuController.cs" />
     <Compile Include="Assets\Scripts\Controllers\ScoreController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\SettingsController.cs" />
     <Compile Include="Assets\Scripts\Domain\ColorGridDomain.cs" />
     <Compile Include="Assets\Scripts\Domain\EquationDomain.cs" />
     <Compile Include="Assets\Scripts\Domain\MathGridDomain.cs" />

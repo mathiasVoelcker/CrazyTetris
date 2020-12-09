@@ -22,6 +22,8 @@ public abstract class GameController : MonoBehaviour
     [SerializeField]
     protected GamePanelController GamePanelController;
 
+    public static bool IsSoundActive = true;
+
     public static bool IsPaused;
 
     public virtual void StartGame()
