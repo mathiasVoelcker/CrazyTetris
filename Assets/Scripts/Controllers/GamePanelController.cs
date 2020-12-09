@@ -18,18 +18,23 @@ public class GamePanelController : MonoBehaviour
     [SerializeField]
     private MenuController MenuController;
 
+    [SerializeField]
+    private GameObject BackButton;
+
     private GameController _gameController;
 
     public void PauseGame()
     {
         PausePanel.SetActive(true);
         GameController.IsPaused = true;
+        BackButton.SetActive(false);
     }
 
     public void ResumeGame()
     {
         PausePanel.SetActive(false);
         GameController.IsPaused = false;
+        BackButton.SetActive(true);
     }
 
     public void BackToMenu()
@@ -38,6 +43,7 @@ public class GamePanelController : MonoBehaviour
         MenuController.EndGame();
         GridPanel.SetActive(false);
         GameOverPanel.SetActive(false);
+        BackButton.SetActive(false);
     }
 
     public void GameOver()

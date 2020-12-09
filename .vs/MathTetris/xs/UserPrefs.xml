@@ -2,14 +2,14 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controllers/Abstracts/SpawnerController.cs">
     <Files>
       <File FileName="Assets/Scripts/Controllers/ColorTetris/ColorTetrisGameController.cs" Line="93" Column="1" />
-      <File FileName="Assets/Scripts/Controllers/Abstracts/GridController.cs" Line="193" Column="1" />
+      <File FileName="Assets/Scripts/Controllers/Abstracts/GridController.cs" />
       <File FileName="Assets/Scripts/Controllers/ColorTetris/ColorTetrisGridController.cs" />
-      <File FileName="Assets/Scripts/Controllers/ColorTetris/ColorTetrisSpawnerController.cs" Line="36" Column="57" />
+      <File FileName="Assets/Scripts/Controllers/ColorTetris/ColorTetrisSpawnerController.cs" />
       <File FileName="Assets/Scripts/Domain/ColorGridDomain.cs" />
-      <File FileName="Assets/Scripts/Entities/Piece.cs" Line="80" Column="27" />
+      <File FileName="Assets/Scripts/Entities/Piece.cs" />
       <File FileName="Assets/Scripts/Controllers/Abstracts/SpawnerController.cs" Line="51" Column="26" />
       <File FileName="Assets/Scripts/Controllers/Abstracts/GameController.cs" />
-      <File FileName="Assets/Scripts/Controllers/GamePanelController.cs" Line="26" Column="23" />
+      <File FileName="Assets/Scripts/Controllers/GamePanelController.cs" />
       <File FileName="Assets/Scripts/Controllers/MenuController.cs" />
       <File FileName="Assets/Scripts/Controllers/ScoreController.cs" />
       <File FileName="Assets/Scripts/Extensions/ColorExtension.cs" />
