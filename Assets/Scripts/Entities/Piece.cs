@@ -126,6 +126,7 @@ public class Piece : MonoBehaviour
             //else
             //    yield return new WaitForSeconds(_fallDelay);
         }
+
     }
 
     private void Rotate(float degree)
@@ -176,7 +177,9 @@ public class Piece : MonoBehaviour
 
             var blockPosition = GetBlockPosition(child);
             if (Math.Round(blockPosition.x, 1) > X_RIGHT_COLLISION || Math.Round(blockPosition.x) < X_LEFT_COLLISION)
+            {
                 return false;
+            }
             if (Math.Round(blockPosition.y, 1) < - Y_COLLISION)
             {
                 return false;

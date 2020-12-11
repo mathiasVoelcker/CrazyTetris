@@ -50,6 +50,7 @@ public class GamePanelController : MonoBehaviour
     {
         GameController.IsPaused = true;
         GameOverPanel.SetActive(true);
+
         //MenuController.EndGame();
     }
 
@@ -60,8 +61,8 @@ public class GamePanelController : MonoBehaviour
 
     public void Restart()
     {
-        MenuController.EndGame();
         GameOverPanel.SetActive(false);
+        _gameController.ResetGame();
         _gameController.StartGame();
     }
 

@@ -47,6 +47,7 @@ public class GridController : MonoBehaviour
 
     public void Reset()
     {
+        Grid = new Transform[LINES, COLUMNS];
         for(int l = 0; l < LINES; l++)
         {
             for (int c = 0; c < COLUMNS; c++)
@@ -55,7 +56,6 @@ public class GridController : MonoBehaviour
                 if (block == null) continue;
                 Destroy(block.gameObject);
                 block.parent = null;
-                Grid[l, c] = null;
             }
         }
         IsHighlightingBlocks = false;

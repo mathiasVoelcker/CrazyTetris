@@ -8,8 +8,8 @@ namespace MathTetris.Assets.Scripts.Domain
     public class ColorGridDomain
     {
         
-        public int _lines = 12;
-        public int _columns = 10;
+        private int _lines;
+        private int _columns;
         private Transform[,] _grid;
 
         public ColorGridDomain(Transform[,] grid, int lines, int columns)
