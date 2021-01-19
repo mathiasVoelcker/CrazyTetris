@@ -224,6 +224,7 @@ public class Piece : MonoBehaviour
     {
         var blocks = new List<Transform>();
         var positions = new List<Vector3>();
+
         //var isPositionOk = true;
         foreach (Transform block in transform)
         {

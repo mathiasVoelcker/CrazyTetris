@@ -25,12 +25,7 @@ public class ColorTetrisGridController : GridController
         {
             if (isSequence)
             {
-                if (blocksSequence == 3)
-                {
-                    var t = 0;
-                }
                 if (blocksSequence < 3) blocksSequence++;
-
             }
             else
                 blocksSequence = 1;
