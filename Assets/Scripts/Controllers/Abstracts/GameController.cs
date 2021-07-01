@@ -26,13 +26,17 @@ public abstract class GameController : MonoBehaviour
 
     public static bool IsPaused;
 
+    public int Score;
+
     public virtual void StartGame()
     {
+        Score = 0;
         SpawnerController.Run();
     }
 
     public virtual void ResetGame()
     {
+        Score = 0;
         ScoreController.Reset();
         LevelController.Reset();
         SpawnerController.Reset();

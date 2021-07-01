@@ -1,5 +1,10 @@
-﻿using System;
+﻿using System.Collections;
+using UnityEngine.Networking;
+using System.Text;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
 
 public class MenuController : MonoBehaviour
 {
@@ -8,6 +13,9 @@ public class MenuController : MonoBehaviour
 
     [SerializeField]
     private GameObject MenuPanel;
+
+    [SerializeField]
+    private GameObject HighestScorePanel;
 
     [SerializeField]
     private GameObject SettingsPanel;
@@ -25,8 +33,10 @@ public class MenuController : MonoBehaviour
     private GamePanelController _gamePanelController;
 
     [SerializeField]
-    private GameObject BackButton;
+    private HighestScoreController _highestScoreController;
 
+    [SerializeField]
+    private GameObject BackButton;
 
     public void StartMathTetris()
     {
@@ -55,11 +65,21 @@ public class MenuController : MonoBehaviour
         _gamePanelController.SetGameController(_duelTetrisGameController);
     }
 
+    public void OpenHighestScore()
+    {
+        MenuPanel.SetActive(false);
+        HighestScorePanel.SetActive(true);
+        _highestScoreController.RestartButton.SetActive(false);
+        _highestScoreController.PopulateHighestScore();
+    }
+
     public void OpenSettings()
     {
         MenuPanel.SetActive(false);
         SettingsPanel.SetActive(true);
     }
+
+    
 
     public void EndGame()
     {

@@ -91,9 +91,9 @@ public class ColorTetrisGameController : GameController
 
         var scoreToAdd = (pieceCount + specialPieceCount) * (Math.Pow(2, pieceSize) * seqMultiplier);
         scoreToAdd += blocksBombed.Count * pieceSize;
-        var newScore = ScoreController.AddScore((int)scoreToAdd);
+        Score = ScoreController.AddScore((int)scoreToAdd);
 
-        if (newScore >= _scoreToNextLevel)
+        if (Score >= _scoreToNextLevel)
         {
             _currentLevel = LevelController.AddLevel();
             _scoreToNextLevel += _nextScoreAddition;

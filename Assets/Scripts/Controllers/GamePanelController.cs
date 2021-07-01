@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GamePanelController : MonoBehaviour
 {
@@ -16,7 +17,14 @@ public class GamePanelController : MonoBehaviour
     private GameObject GameOverPanel;
 
     [SerializeField]
+    private GameObject HighestScorePanel;
+
+    [SerializeField]
     private MenuController MenuController;
+
+    [SerializeField]
+    private HighestScoreController HighestScoreController;
+
 
     [SerializeField]
     private GameObject BackButton;
@@ -39,11 +47,12 @@ public class GamePanelController : MonoBehaviour
 
     public void BackToMenu()
     {
-        MenuPanel.SetActive(true);
         MenuController.EndGame();
         GridPanel.SetActive(false);
         GameOverPanel.SetActive(false);
         BackButton.SetActive(false);
+        HighestScorePanel.SetActive(false);
+        MenuPanel.SetActive(true);
     }
 
     public void GameOver()
@@ -62,6 +71,9 @@ public class GamePanelController : MonoBehaviour
     public void Restart()
     {
         GameOverPanel.SetActive(false);
+        HighestScorePanel.SetActive(false);
+        GridPanel.SetActive(true);
+        BackButton.SetActive(true);
         _gameController.ResetGame();
         _gameController.StartGame();
     }
@@ -75,6 +87,24 @@ public class GamePanelController : MonoBehaviour
             else if (child.name.Contains("Block"))
                 Destroy(child.gameObject);
         }
-        //var child = GridPanel.transform.FindChild("Block");
+    }
+
+    public void SaveScore()
+    {
+        var service = new UserScoreService();
+        var username = GameOverPanel
+            .transform
+            .Find("Username Input")
+            .Find("Text")
+            .GetComponent<Text>().text;
+        int id = service.SaveScore(username, _gameController.Score);
+        
+        MenuController.EndGame();
+        GridPanel.SetActive(false);
+        GameOverPanel.SetActive(false);
+        BackButton.SetActive(false);
+        HighestScorePanel.SetActive(true);
+        HighestScoreController.RestartButton.SetActive(true);
+        HighestScoreController.PopulateHighestScore(id);
     }
 }

@@ -1,0 +1,10 @@
+Resources:
+  MathTetris:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: >-
+        Assembly-CSharp::MathTetris.Assets.Scripts.Controllers.ColorTetris.UnitTest::TestCapitalizeSentence_SingleLetter
+      CodeUri: /Users/mathiasvoelcker/Desktop/Developer/Unity/MathTetris
+      Runtime: dotnetcore2.1
+      Environment:
+        Variables: {}
